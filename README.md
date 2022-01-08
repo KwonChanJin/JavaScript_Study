@@ -46,4 +46,39 @@
 
 
 ## Chapter02
-### 자바스크립트의 역사와 현재 그리고 미래(JavaScript, ECMAScript, Babel, Node.js)
+### 콘솔에 출력, script async와 defer의 차이점 및 앞으로 자바스크립트 공부 방향
+
+## Chapter03
+### 데이터타입, data types, let vs var, hosting
+
+## Chapter04
+### 코딩의 기본 operator, if, for loop 코드리뷰 팁
+
+## Chapter05
+### Arrow Fuction은 무엇인가? 함수의 선언과 표현
+
+## Chapter06
+### 클래스와 오브젝트의 차이점(class vs object), 객체지향 언어 클래스 정리
+
+## Chapter07
+### 오브젝트 넌 뭐니?
+
+## Chapter08
+### 배열 제대로 알고 쓰자. 자바스크립트 배열 개념과 APIs 총정리
+
+## Chapter09
+### 유용한 10가지 배열 함수들. Array APIs 총정리
+
+## Chapter10
+### JSON 개념 정리와 활용방법 및 유용한 사이트 공유
+
+## Chapter11
+### 비동기 처리의 시작 콜백 이해하기
+
+## Chapter12
+### 프로미스 개념부터 활용까지 JavaScript Promise
+
+## Chapter13
+### 비동기의 꽃 JavaScript async와 await 그리고 유용한 Promise APIs
+
+
