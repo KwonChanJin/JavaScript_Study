@@ -47,6 +47,15 @@
 
 ## Chapter02
 ### 콘솔에 출력, script async와 defer의 차이점 및 앞으로 자바스크립트 공부 방향
+#### JavaScript 공부 사이트
+- ecma-international.org
+  - Javascript 공식 사이트
+  - 문법 등 확인가능
+  - 개발자가 참고하기에 조금 난해함
+- developer.mozilla.org
+  - Java Script 공부할 때 추천함
+  - 프론트 개발자들이 주로 이용
+
 
 ## Chapter03
 ### 데이터타입, data types, let vs var, hosting
