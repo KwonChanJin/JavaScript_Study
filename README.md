@@ -43,3 +43,7 @@
  
 - 요즘 뜨고 있는 다른 기술?
   - WA(Web Assembly)
+
+
+## Chapter02
+### 자바스크립트의 역사와 현재 그리고 미래(JavaScript, ECMAScript, Babel, Node.js)
