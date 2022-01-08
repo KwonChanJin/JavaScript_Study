@@ -56,8 +56,34 @@
   - Java Script 공부할 때 추천함
   - 프론트 개발자들이 주로 이용
 
+#### 개발자 모드 사용하기
+- Console
+  - console.log : JavaScript 파일에서 지정한 내용 출력
+  - alert : 팝업창 출력
+  - 문자 정의
+- Sources & Network
+  - Sources : 소스코드를 모두 볼 수 있고, 명령줄에서 브레이크를 걸 수 있으며, 디버깅할 때 유용하다.
+  - Network : 네트워크들의 크기와 다양한 데이터가 얼마나 오고가는지 등의 정보를 알 수 있다.
 
-## Chapter03
+#### HTML에서 JavaScript 실행
+- <head>에서 <script> 실행
+'''html
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+'''
+
+  ## Chapter03
 ### 데이터타입, data types, let vs var, hosting
 
 ## Chapter04
