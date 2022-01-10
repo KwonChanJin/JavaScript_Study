@@ -289,15 +289,314 @@ console.log(text.charAt(0)) // error
 
 ## Chapter04
 ### 코딩의 기본 operator, if, for loop 코드리뷰 팁
+#### 1. String concatenation
+~~~ javascript
+console.log('my' + 'cat');
+console.log('1' + 2);
+console.log(`string literals: 1 + 2 = ${1 + 2}`);
+~~~
+
+#### 2. Numeric operators
+add, substract, divide, multiply, remainder, exponentiation
+
+#### 3. Increment and decrement operators
+~~~ javascript
+let counter = 2;
+const preIncrement = ++counter;
+// counter = counter + 1;
+// preIncrement = counter;
+console.log(`preIncrement: ${preIncrement}, counter: ${counter}`);
+const postIncrement = counter++;
+// postIncrement = counter;
+// counter = counter + 1;
+console.log(`postIncrement: ${postIncrement}, counter: ${counter}`);
+const preDecrement = --counter;
+console.log(`preDecrement: ${preDecrement}, counter: ${counter}`);
+const postDecrement = counter--;
+console.log(`postDecrement: ${postDecrement}, counter: ${counter}`);
+~~~
+
+#### 4. Assignment operators
+~~~ javascript
+let x = 3;
+let y = 6;
+x += y; // x = x + y;
+x -= y;
+x *= y;
+x /= y;
+~~~
+
+#### 5. Comparison operators
+~~~ javascript
+console.log(10 < 6); // less than
+console.log(10 <= 6); // less than or equal
+console.log(10 > 6); // greater than
+console.log(10 >= 6); // greater than or equal
+~~~
+
+#### 6. Logical operators: || (or), && (and), ! (not)
+- || (or), finds the first truthy value
+- && (and), finds the first falsy value
+
+#### 7. Equality
+- == loose equality : 형식을 고려하지 않고 단순히 동일한지 여부만 판단.
+- === strict equality : 형식이 다르면 다르다고 판단.
+~~~ javascript
+const stringFive = '5';
+const numberFive = 5;
+
+console.log(stringFive == numberFive); // True
+console.log(stringFive != numberFive); // Flase
+
+console.log(stringFive === numberFive); // False
+console.log(stringFive !== numberFive); // True
+~~~
+
+#### 8. Conditional operators: if
+if, else is, else
+
+#### 9. Ternary operator: ?
+
+#### 10. Switch statement
+- use for multiple if checks
+- use for enum-like value check
+- use for multiple type checks in TS
+
+#### 11. Loops
+- while loop, for loop
+- break, continue
 
 ## Chapter05
 ### Arrow Fuction은 무엇인가? 함수의 선언과 표현
+#### Function
+- fundamental building block in the program
+- subprogram can be used multiple times
+- performs a task or calculates a value
+
+##### 1. Function declaration
+- function name(param1, param2) { body... return; }
+- one function === one thing
+- naming : doSomething, command, verb
+- e.g. createCardAndPoint -> createcard, createPoint
+- function is object in JS
+
+##### 2.Parameters
+- premitive parameters: passed by value
+- object parameters: passed by reference
+
+##### 3. Default parameters (addded in ES6)
+##### 4. Rest parameters (added in ES6)
+##### 5. Local scope
+##### 6. Return a value
+##### 7. Early return, early exit
+
+
+#### First-class function
+- functions are treated like any other variable
+- can be assigned as a value to variable
+- can be passed as an argument to other functions.
+- can be returned by another function
+
+##### 1. Function expression
+- a function declaration can be called earlier than it is defined. (hoisted)
+- a function expression is created when thr excution reaches it.
+
+##### 2. Callback function using functino expression
+~~~ javascript
+function randomQuiz(answer, printYes, printNo) {
+    if (answer === 'love you') {
+        printYes();
+    } else {
+        printNo();
+    }
+}
+// anonymous function
+const printYes = function () {
+    console.log('yes!');
+};
+
+// named function
+// better debugging in debugger's stack traces
+// recursions
+const printNo = function print() {
+    console.log('no!');
+};
+randomQuiz('wrong', printYes, printNo);
+randomQuiz('love you', printYes, printNo);
+
+// Arrow function
+// always anonymous
+//const simplePrint = function () {
+//    console.log('simplePrint');
+//};
+
+const simplePrint = () => console.log('simplePrint!');
+const add = (a, b) => a + b;
+const simpleMultiply = (a, b) => {
+    // do somthing more
+    return a * b;
+};
+
+// IIFE: Immediately Invoked Function Expression
+(function hello() {
+    console.log('IIFE');
+})();
+~~~
 
 ## Chapter06
 ### 클래스와 오브젝트의 차이점(class vs object), 객체지향 언어 클래스 정리
+#### Object-oriendted programming
+- class: template
+- object: instance of a class
+
+#### JavaScript classes
+- interoduced in ES6
+- syntactical sugar over prototype-based inheritance
+
+#### 1. Class declarations
+#### 2. Getter and setters
+~~~ javascript
+class User {
+    constructor(firstName, lastName, age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    get age() {
+        return this._age;
+    }
+
+    set age(value) {
+        //if (value < 0) {
+        //    throw Error('age can not be negative');
+        //}
+        this._age = value < 0 ? 0 : value;
+    }
+}
+
+const user1 = new User('Steve', 'Job', -1);
+console.log(user1.age);
+~~~
+
+#### 3. Fields (public, private)
+- too soon
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference
+
+#### 4. Static properties and methods
+#### 5. Inheritance
+a way for one class to extend another class.
+#### 6. Class checking : instanceOf
 
 ## Chapter07
 ### 오브젝트 넌 뭐니?
+#### Objects
+- one of the JavaScript's data types.
+- a collecton of related data and/or functiionality.
+- Nearly all objects in JavaScript are instances of Object
+
+#### 1. Literals and properties
+~~~ javascript
+const obj1 = {}; // 'objext literal' syntax
+const obj2 = new Object(); 
+~~~
+##### 'object constructor' syntax
+
+~~~ javascript
+function print(person) {
+    console.log(person.name);
+    console.log(person.age);
+}
+
+const chanjin = { name: 'chanjiin', age: 4};
+print(chanjin);
+~~~
+
+##### with JavaScript magic (dynamically typed language)
+##### can add properties later
+~~~ javascript
+chanjin.hasJob = true;
+console.log(chanjin.hasJob);
+~~~
+~~~ javascript
+// can delete preperties later
+console.log(chanjin.hasJob);
+~~~
+
+#### 2. Computed properties
+key should be always string
+
+#### 3. Property value shorthand
+~~~ javascript
+const person1 = { name: 'bob', age: 2 };
+const person2 = { name: 'steve', age: 3 };
+const person3 = { name: 'dave', age: 4};
+const person4 = new Person('chanjin', 24);
+console.log(person4);
+~~~
+
+#### 4. Constructor function
+~~~ javascript
+function Person(name, age) {
+    // this = {};
+    this.name = name;
+    this.age = age;
+    // return this;
+}
+~~~
+
+#### 5. in operator: property existence check (key in obj)
+~~~ javascript
+console.log('name' in chanjin);
+console.log('age' in chanjin);
+console.log('random' in chanjin);
+console.log(chanjin.random);
+~~~
+
+#### 6. for..in vs for..of
+##### for (key in obj)
+~~~
+for (key in chanjin) {
+    console.log(key);
+}
+~~~
+
+##### for (value of iterable)
+~~~ javascript
+const array = [1, 2, 4, 5]
+for (value of array) {
+    console.log(value);
+}
+~~~
+
+#### 7. Fun cloning
+##### Object.assign(dest, [obj1, obj2, obj3...])
+~~~ javascript
+const user = { name: 'chanjin', age: '20'};
+const user2 = user;
+user2.name = 'coder';
+console.log(user);
+~~~
+
+##### old way
+~~~ javascript
+const user3 = {};
+for (key in user) {
+    user3[key] = user[key];
+}
+console.log(user3);
+
+const user4 = Object.assign({}, user);
+console.log(user4);
+~~~
+##### another example
+~~~ javascript
+const fruit1 = { color: 'red' };
+const fruit2 = { color: 'blue', size: 'big' };
+const mixed = Object.assign({}, fruit1, fruit2);
+console.log(mixed.color);
+console.log(mixed.size);
+~~~
 
 ## Chapter08
 ### 배열 제대로 알고 쓰자. 자바스크립트 배열 개념과 APIs 총정리
