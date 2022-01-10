@@ -600,12 +600,197 @@ console.log(mixed.size);
 
 ## Chapter08
 ### 배열 제대로 알고 쓰자. 자바스크립트 배열 개념과 APIs 총정리
+#### 1. Declaration
+~~~ javascript
+const arr1 = new Array();
+const arr2 = [1, 2];
+~~~
+
+#### 2. Index position
+~~~ javascript
+const fruits = ['🍎', '🍌'];
+console.log(fruits);
+console.log(fruits.length);
+console.log(fruits[0]);
+console.log(fruits[1]);
+console.log(fruits[2]);
+console.log(fruits[fruits.length = 1]);
+~~~
+
+#### 3. Looping over an array
+- print all fruits
+##### a. for
+~~~
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+~~~
+##### b. for of
+~~~ javascript
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+~~~
+
+##### c. forEach
+~~~ javascript
+fruits.forEach((fruit) => console.log(fruit));
+~~~
+
+#### 4. Addiction, deletion, copy
+##### push: add an item to the end
+~~~
+fruits.push('🍎', '🍌');
+console.log(fruits);
+~~~
+
+##### pop: remove an item from the end
+~~~
+fruits.pop();
+fruits.pop();
+console.log(fruits);
+~~~
+
+##### unshift: add an item to the beniggin
+~~~
+fruits.unshift('🍎', '🍌');
+console.log(fruits);
+~~~
+
+##### shift: remove an item from the benigging
+~~~
+fruits.shift();
+fruits.shift();
+console.log(fruits);
+~~~
+
+##### note!! shift, unshift are slower than pop, push
+
+##### splice : remove an item by index position
+~~~
+fruits.push('🍎', '🍌', '🍏');
+console.log(fruits);
+fruits.splice(1, 1);
+console.log(fruits);
+fruits.splice(1, 1, '🍌', '🍏');
+console.log(fruits);
+~~~
+
+##### combine two arrays
+~~~
+const fruits2 = ['🍊', '🍋'];
+const newFruits = fruits.concat(fruits2);
+console.log(newFruits);
+~~~
+
+#### 5. Searching
+##### find the index
+~~~
+console.clear();
+console.log(fruits);
+console.log(fruits.indexOf('🍉'));
+console.log(fruits.indexOf('🥥'));
+console.log(fruits.indexOf('🥝'));
+~~~
+
+##### includes
+~~~
+console.log(fruits.includes('🥥'));
+console.log(fruits.includes('🥝'));
+~~~
+
+##### lastIndexOf
+~~~
+console.clear();
+fruits.push('🍉');
+console.log(fruits);
+console.log(fruits.indexOf('🍉'));
+console.log(fruits.lastIndexOf('🍉'));
+~~~
 
 ## Chapter09
 ### 유용한 10가지 배열 함수들. Array APIs 총정리
+Quiz
 
 ## Chapter10
 ### JSON 개념 정리와 활용방법 및 유용한 사이트 공유
+#### HTTP(Hypertext Transfer Protocal) 
+- 어떻게 hyper text를 주고받을 수 있는가
+- client와 server가 어떻게 통신하는가
+#### AJAX (Asynchronous JavaScript And XML)
+#### XHR (XML Http Request) 
+- html과 마찬가지로 마크업 방식
+- fetch()API : 인터넷익스플로어는 지원하지 않음
+- 데이터를 주고받을 때는 XML 뿐만아니라 다양한 데이터를 전송할 수 있다.
+- 처음 개발될 때 이름을 지었기 때문에 XML이 이름에 포함된다. (사용자에게 혼란을 줄 수도 있음)
+- 하지만 XML은 가독성이 떨어지고 효율적이지 않다.
+
+#### JSON
+요즘에는 XML 대신 JSON을 사용한다.
+- Simplest data interchange format
+- lightweight text-based structure
+- easy to read
+- key value pairs
+- used for serialization and ransmission of data between the network the network connection
+- independent programming language and platform
+- 즉, 언어에 상관없이 사용간으하다.
+
+#### JSON을 공부할 떄 중요한 것 두 가지
+1) Client에서 Server로 Object에 대한 key와 value값을 string 타입으로 변경해서 전송한다.
+2) Server에서 Client로 key값과 value값을 받으면 Object로 변환하여 사용자에게 나타낸다.
+
+#### JSON
+JavaScript Object Notation
+
+##### 1. Object to JSON
+~~~ javascript
+// stringfy(obj)
+let json = JSON.stringify(true);
+console.log(json);
+
+json = JSON.stringify(['apple', 'banana']);
+console.log(json);
+
+const rabbit = {
+    name: 'tori',
+    color: 'white',
+    size: null,
+    birthDate: new Date(),
+    jump: () => {
+        console.log(`${name} can jump!`);
+    },
+};
+
+json = JSON.stringify(rabbit);
+console.log(json);
+
+json = JSON.stringify(rabbit, ['name', 'color', 'size']);
+console.log(json);
+
+json - JSON.stringify(rabbit, (key, value) => {
+    console.log(`key: ${key}, value: ${key}`);
+    return key === 'name' ? 'chanjin' : value;
+});
+console.log(json);
+~~~
+
+##### 2. JSON to Object
+~~~ javascript
+// parse(json)
+console.clear();
+json = JSON.stringify(rabbit);
+console.log(json);
+const obj = JSON.parse(json, (key, value) => {
+    console.log(`key: ${key}, value: ${value}`);
+    return key === 'birthDate' ? new Date(value) : value;
+});
+console.log(obj);
+rabbit.jump();
+// obj.jump();
+
+console.log(rabbit.birthDate.getDate());
+console.log(obj.birthDate);
+~~~
 
 ## Chapter11
 ### 비동기 처리의 시작 콜백 이해하기
